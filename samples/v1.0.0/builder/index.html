@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <title>Api | Checkout</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/builder.css">
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://assets.pagar.me/site/general/logo-light-3812e7ea6b596bdcc8c041f0edc4ff15.png" />
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Encryption key</label>
+          <input id="encryptionKey" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Postback URL</label>
+          <input id="postbackUrl" type="text" class="form-control">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Amout</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input id="amount" type="number" class="form-control" value="80000">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Interest rate</label>
+              <input id="interestRate" type="number" class="form-control" value="0">
+            </div>
+          </div>
+        </div>
+        <div id="card-installments-container" class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Max Installments</label>
+              <input id="maxInstallments" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Free Installments</label>
+              <input id="freeInstallments" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Default Installment</label>
+              <input id="defaultInstallment" type="number" class="form-control" value="0">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Order ID</label>
+              <input id="orderId" type="text" class="form-control" value="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Credit Card Discount Percentage</label>
+              <input id="creditCardDiscountPercentage" type="number" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Credit Card Discount Amount</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input id="creditCardDiscountAmount" type="number" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Boleto Discount Percentage</label>
+              <input id="boletoDiscountPercentage" type="number" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Boleto Discount Amount</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input id="boletoDiscountAmount" type="number" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-4">
+            <h6>Config</h6>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="customerData" class="form-check-input" type="checkbox">
+                Customer Data
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="createToken" class="form-check-input" type="checkbox">
+                Create Token
+              </label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h6>Payment</h6>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="creditCard" class="form-check-input" type="checkbox" value="credit_card">
+                Credit Card
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="boleto" class="form-check-input" type="checkbox" value="boleto">
+                Boleto
+              </label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="disableZeroDocumentNumber" class="form-check-input" type="checkbox">
+                Disable Zero Document Number
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div id="card-brands-container" class="mb-4">
+          <h6>Card Brands</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="amex">
+                  Amex
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="elo">
+                  Elo
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="diners">
+                  Diners
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="jcb">
+                  Jcb
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="hipercard">
+                  Hipercard
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="visa">
+                  Visa
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="aura">
+                  Aura
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="discover">
+                  Discover
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="mastercard">
+                  Mastercard
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-3">
+            <label>UI Color</label>
+            <input id="uiColor" type="text" class="form-control color-picker">
+          </div>
+          <div class="col-md-3">
+            <label>Button Text</label>
+            <input id="buttonText" type="text" class="form-control">
+          </div>
+          <div class="col-md-3">
+            <label>Button Class</label>
+            <input id="buttonClass" type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Header Text</label>
+            <input id="headerText" type="text" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label>Payment Button Text</label>
+            <input id="paymentButtonText" type="text" class="form-control">
+          </div>
+        </div>
+
+        <div id="build-container" class="text-center">
+          <button id="btn-build" type="button" class="btn btn-primary btn-build">Build</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://localhost:8000/dist/checkout.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/vendor/jqColorPicker.min.js"></script>
+  <script src="js/builder.js"></script>
+
+</body>
+</html>

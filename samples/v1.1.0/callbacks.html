@@ -1,11 +1,10 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <title>Api | Checkout</title>
-  <script src="https://thiagommedeiros.github.io/checkout-teste/dist/checkout.js"></script>
+  <title>Callbacks | Checkout</title>
+  <script src="http://localhost:8000/dist/1.1.0/checkout.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
@@ -17,9 +16,20 @@
     var button = document.querySelector('#pay')
     var pre = document.querySelector('pre')
 
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
       var checkout = new PagarMeCheckout.Checkout({
         encryption_key: 'ek_test_f9cws0bU9700VqWE4UDuBlKLbvX4IO',
+        success: function() {
+          console.log('Success: ', data);
+          pre.innerHTML = JSON.stringify(data);
+        },
+        error: function() {
+          console.log('Error: ', data);
+          pre.innerHTML = JSON.stringify(data);
+        },
+        close: function() {
+          console.log('The modal has been closed.')
+        }
       });
 
       checkout.open({
@@ -28,10 +38,9 @@
         defaultInstallment: 4,
         customerData: 'false',
         createToken: 'true',
-        paymentMethods: 'boleto,credit_card',
-      })
+        paymentMethods: 'boleto,credit_card'
+      });
     });
   </script>
 </body>
-
 </html>

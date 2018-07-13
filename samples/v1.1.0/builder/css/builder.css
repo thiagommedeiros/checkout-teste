@@ -1,0 +1,75 @@
+body{
+  background-color: #282828
+}
+
+.logo{
+  margin: 30px auto;
+  display: block;
+}
+
+label, h6 {
+  color: #92c83e;
+  font-weight: bold
+}
+
+h6 {
+  margin: 25px 0 10px 0;
+}
+
+.form-check label{
+  margin-left: 15px;
+  color: #CCC;
+  font-weight: normal;
+}
+
+.btn-primary{
+  margin: 0;
+  display: inline-block;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid #92c83e;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  font-family: "Titillium Web", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 1px;
+  vertical-align: middle;
+  line-height: 13px;
+  color: #92c83e;
+  -webkit-transition: opacity cubic-bezier(0.23, 1, 0.32, 1) 0.28s;
+  transition: opacity cubic-bezier(0.23, 1, 0.32, 1) 0.28s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-primary:hover{
+  background-color: #92c83e;
+  border-color: #92c83e;
+  color: #FFF;
+}
+
+.btn-primary:active{
+  background: none;
+  color: #92c83e;
+  margin-top: 1px;
+}
+
+.btn-primary:focus{
+  box-shadow: none;
+}
+
+#build-container{
+  margin-top: 50px
+}
+
+#build-container .btn-build{
+  width: 30%;
+  font-size: 1.1em;
+  padding: 15px
+}

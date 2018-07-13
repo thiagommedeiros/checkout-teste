@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <title>Form | Checkout</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <form method="POST" action="/comprar">
+    <script type="text/javascript"
+      src="http://localhost:8000/dist/checkout.js"
+      data-button-text="Pagar"
+      data-encryption-key="SUA_ENCRYPTION_KEY"
+      data-amount="1000"
+      data-customer-data="true"
+      data-payment-methods="boleto,credit_card"
+      data-ui-color="#bababa"
+      data-postback-url="requestb.in/1234"
+      data-create-token="true"
+      data-interest-rate="12"
+      data-free-installments="3"
+      data-default-installment="5"
+      data-header-text="Título"
+      data-button-text="Pagar agora!">
+    </script>
+  </form>
+</body>
+</html>

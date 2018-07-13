@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <title>Antifraud | Checkout</title>
+  <script src="http://localhost:8000/dist/checkout.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <button id="pay">Pay me</button>
+  <pre></pre>
+
+  <script>
+    var button = document.querySelector('#pay')
+    var pre = document.querySelector('pre')
+    button.addEventListener('click', function() {
+      var checkout = new PagarMeCheckout.Checkout({
+        encryption_key: 'ek_test_dsBL3MwBmv6c3XcgZnYLWbcJh2KdML',
+        error: function (e) {
+          console.log(e)
+        }
+      })
+      checkout.open({
+        amount: 8000,
+        createToken: 'true',
+        paymentMethods: 'credit_card',
+        customerData: false,
+        customer: {
+          external_id: '#123456789',
+          name: 'Fulano',
+          type: 'individual',
+          country: 'br',
+          email: 'fulano@email.com',
+          documents: [
+            {
+              type: 'cpf',
+              number: '71404665560',
+            },
+          ],
+          phone_numbers: ['+5511999998888', '+5511888889999'],
+          birthday: '1985-01-01',
+        },
+        billing: {
+          name: 'Ciclano de Tal',
+          address: {
+            country: 'br',
+            state: 'SP',
+            city: 'São Paulo',
+            neighborhood: 'Fulanos bairro',
+            street: 'Rua dos fulanos',
+            street_number: '123',
+            zipcode: '05170060'
+          }
+        },
+        shipping: {
+          name: 'Ciclano de Tal',
+          fee: 12345,
+          delivery_date: '2017-12-25',
+          expedited: true,
+          address: {
+            country: 'br',
+            state: 'SP',
+            city: 'São Paulo',
+            neighborhood: 'Fulanos bairro',
+            street: 'Rua dos fulanos',
+            street_number: '123',
+            zipcode: '05170060'
+          }
+        },
+        items: [
+          {
+            id: '1',
+            title: 'Bola de futebol',
+            unit_price: 12000,
+            quantity: 1,
+            tangible: true
+          },
+          {
+            id: 'a123',
+            title: 'Caderno do Goku',
+            unit_price: 3200,
+            quantity: 3,
+            tangible: true
+          }
+        ]
+      })
+    })
+  </script>
+</body>
+</html>
